@@ -1,0 +1,6 @@
+name: TaxonomyFilter
+version: 1.0
+description: Filter a collection based on entries' arrays of taxonomy IDs.
+url: https://github.com/chris-79/statamic-TaxonomyFilter
+developer: Chris S.
+developer_url: https://github.com/chris-79
