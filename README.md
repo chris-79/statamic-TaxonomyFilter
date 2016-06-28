@@ -2,6 +2,8 @@
 
 Filter a collection based on entries' arrays of taxonomy IDs.
 
+So much thanks to [@edalzell](https://github.com/edalzell)!
+
 ## Installation
 
 1. Move the `statamic-TaxonomyFilter` folder to `site/addons/TaxonomyFilter` (removing the `statamic-` bit)
