@@ -4,6 +4,7 @@ namespace Statamic\Addons\TaxonomyFilter;
 
 use Statamic\Extend\Filter;
 use Statamic\API\TaxonomyTerm;
+use Statamic\API\Helper;
 
 class TaxonomyFilterFilter extends Filter
 {
@@ -17,11 +18,14 @@ class TaxonomyFilterFilter extends Filter
     return $this->collection->filter(function ($entry)
     {
 
+      $tf_group = $this->get('tf_group');
       $tf_slug = $this->get('tf_slug',$this->context['last_segment']);
-      $taxonomy_object = TaxonomyTerm::getFromTaxonomy($this->get('tf_group'),$tf_slug);
-      $the_id = $taxonomy_object->get('id');
 
-      return in_array($the_id,$entry->get($this->get('tf_group')));
+      $taxonomy_object = TaxonomyTerm::getFromTaxonomy($tf_group,$tf_slug);
+      $the_id = $taxonomy_object->get('id');
+      $tf_group_array = Helper::ensureArray($entry->get($tf_group));
+
+      return in_array($the_id,$tf_group_array);
 
     });
   }
