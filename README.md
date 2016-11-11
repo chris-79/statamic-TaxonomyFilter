@@ -15,7 +15,11 @@ So much thanks to [@edalzell](https://github.com/edalzell)!
 In your template, use the filter like this:
 
 ```
-{{ collection:collection_slug filter="TaxonomyFilter" tf_group="{ taxonomy_group_slug }" tf_slug="{ taxonomy_item_slug }" }}
+{{ collection:collection_slug
+    filter="TaxonomyFilter"
+    tf_group="{ taxonomy_group_slug }"
+    tf_slug="{ taxonomy_item_slug }"
+}}
 ```
 
 If `tf_slug` is not provided, it defaults to the value of `{{ last_segment }}`.
@@ -40,13 +44,14 @@ In my use case, I'm trying to filter based on the URI `/events/categories/summer
 ### Template
 
 ```
-{{ collection:events filter="TaxonomyFilter"
-                     tf_group="events-categories"
-                     tf_slug="{ slug }"
-                     sort="date:asc"
-                     show_future="yes"
-                     show_past="no"
-                     as="events"
+{{ collection:events
+    filter="TaxonomyFilter"
+    tf_group="events-categories"
+    tf_slug="{ slug }"
+    sort="date:asc"
+    show_future="yes"
+    show_past="no"
+    as="events"
 }}
   {{ unless no_results }}
     <h2>
